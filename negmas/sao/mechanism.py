@@ -628,6 +628,8 @@ class SAOMechanism(Mechanism):
         return MechanismRoundResult(broken=False, timedout=False, agreement=None)
 
     def negotiator_offers(self, negotiator_id: str) -> List[Outcome]:
+        """ Returns a list of offers by a particular negotiator
+        """
         offers = []
         for state in self._history:
             offers += [o for n, o in state.new_offers if n == negotiator_id]
